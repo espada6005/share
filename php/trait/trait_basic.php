@@ -18,6 +18,7 @@ class HelloWorld {
     public function sayHelloWorld() {
         $s = fn(string $str) :string => $str;
         echo "{$s($this->sayHello())} {$s($this->sayWorld())}!\n";
+        // echo "{$this->sayHello()} {$this->sayWorld()}! \n";
     }
 }
 

@@ -1,38 +1,41 @@
 <?php
 
-class Base {
-    public function sayHello() {
-        echo "Hello ";
-    }
-}
+// 優先順位 自クラス > トレイト > 親クラス
 
-trait SayWorld {
-    public function sayHello() {
-        parent::sayHello();
-        echo "World!\n";
-    }
-}
-
-class HelloWorld extends Base {
-    use SayWorld;
-}
-
-$hw = new HelloWorld();
-$hw->sayHello();
-
-// trait HelloWorld {
+// class Base {
 //     public function sayHello() {
-//         echo "Hello World!\n";
+//         echo "Hello ";
 //     }
 // }
 
-// class TheWorldIsNotEnough {
-//     use HelloWorld;
-
+// trait SayWorld {
 //     public function sayHello() {
-//         echo "Hello Universe!\n";
+//         parent::sayHello();
+//         echo "World!\n";
 //     }
 // }
 
-// $twine = new TheWorldIsNotEnough();
-// $twine->sayHello();
+// class HelloWorld extends Base {
+//     use SayWorld;
+// }
+
+// $hw = new HelloWorld();
+// $hw->sayHello();
+
+trait HelloWorld {
+    public function sayHello() {
+        echo "Hello World!\n";
+    }
+}
+
+class TheWorldIsNotEnough {
+    use HelloWorld;
+
+    public function sayHello() {
+        echo "Hello Universe!\n";
+    }
+
+}
+
+$twine = new TheWorldIsNotEnough();
+$twine->sayHello();
